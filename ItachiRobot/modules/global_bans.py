@@ -54,7 +54,7 @@ UNGBAN_ERRORS = {
 
 @run_async
 @support_plus
-def gban(update: Update, context: CallbackContext):
+def kill(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
     message = update.effective_message
     user = update.effective_user
@@ -246,7 +246,7 @@ def gban(update: Update, context: CallbackContext):
 
 @run_async
 @support_plus
-def ungban(update: Update, context: CallbackContext):
+def heal(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
     message = update.effective_message
     user = update.effective_user
@@ -357,7 +357,7 @@ def ungban(update: Update, context: CallbackContext):
 
 @run_async
 @support_plus
-def gbanlist(update: Update, context: CallbackContext):
+def killlist(update: Update, context: CallbackContext):
     banned_users = sql.get_gban_list()
 
     if not banned_users:
@@ -413,7 +413,7 @@ def check_and_ban(update, user_id, should_message=True):
 
 
 @run_async
-def enforce_gban(update: Update, context: CallbackContext):
+def enforce_kill(update: Update, context: CallbackContext):
     # Not using @restrict handler to avoid spamming - just ignore if cant gban.
     bot = context.bot
     try:
@@ -443,7 +443,7 @@ def enforce_gban(update: Update, context: CallbackContext):
 
 @run_async
 @user_admin
-def gbanstat(update: Update, context: CallbackContext):
+def killstat(update: Update, context: CallbackContext):
     args = context.args
     if len(args) > 0:
         if args[0].lower() in ["on", "yes"]:
@@ -469,7 +469,7 @@ def __stats__():
 
 
 def __user_info__(user_id):
-    is_gbanned = sql.is_user_gbanned(user_id)
+    is_killed = sql.is_user_gbanned(user_id)
     text = "Malicious: <b>{}</b>"
     if user_id in [777000, 1087968824]:
         return ""
@@ -511,22 +511,22 @@ Constantly help banning spammers off from your group automatically So, you wont 
 *Note:* Users can appeal spamwatch bans at @SpamwatchSupport
 """
 
-GBAN_HANDLER = CommandHandler("gban", gban)
-UNGBAN_HANDLER = CommandHandler("ungban", ungban)
-GBAN_LIST = CommandHandler("gbanlist", gbanlist)
+KILL_HANDLER = CommandHandler("kill", kill)
+HEAL_HANDLER = CommandHandler("heal", heal)
+KILL_LIST = CommandHandler("killlist", killlist)
 
-GBAN_STATUS = CommandHandler("antispam", gbanstat, filters=Filters.group)
+KILL_STATUS = CommandHandler("antispam", killstat, filters=Filters.group)
 
-GBAN_ENFORCER = MessageHandler(Filters.all & Filters.group, enforce_gban)
+KILL_ENFORCER = MessageHandler(Filters.all & Filters.group, enforce_kill)
 
-dispatcher.add_handler(GBAN_HANDLER)
-dispatcher.add_handler(UNGBAN_HANDLER)
-dispatcher.add_handler(GBAN_LIST)
-dispatcher.add_handler(GBAN_STATUS)
+dispatcher.add_handler(KILL_HANDLER)
+dispatcher.add_handler(HEAL_HANDLER)
+dispatcher.add_handler(KILL_LIST)
+dispatcher.add_handler(KILL_STATUS)
 
 __mod_name__ = "Anti-Spam"
-__handlers__ = [GBAN_HANDLER, UNGBAN_HANDLER, GBAN_LIST, GBAN_STATUS]
+__handlers__ = [KILL_HANDLER, HEAL_HANDLER, KILL_LIST, KILL_STATUS]
 
 if STRICT_GBAN:  # enforce GBANS if this is set
-    dispatcher.add_handler(GBAN_ENFORCER, GBAN_ENFORCE_GROUP)
-    __handlers__.append((GBAN_ENFORCER, GBAN_ENFORCE_GROUP))
+    dispatcher.add_handler(KILL_ENFORCER, KILL_ENFORCE_GROUP)
+    __handlers__.append((KILL_ENFORCER, KILL_ENFORCE_GROUP))
