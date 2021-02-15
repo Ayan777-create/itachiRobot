@@ -57,7 +57,7 @@ I am Eren Yeager an Anime Theme Bot.I can Manage your group with my super cool p
 
 HELP_STRINGS = """
 Hey Wanderer! I am *{Eren Yeager}*.
- From Paradise Island. Add me In your Groups so The Founding Titan can protect your group. i am more powerful and stable than other other bots help me to grow my Eldian empire.
+ From Paradise Island. Add me In your Groups so The Founding Titan can protect your group. I am more powerful and stable than other other bots help me to grow my Eldian empire.
 
 *Main* commands available:
  • /help: PM's you this message.
@@ -186,7 +186,7 @@ def start(update: Update, context: CallbackContext):
         else:
             first_name = update.effective_user.first_name
             update.effective_message.reply_photo(
-                SAITAMA_IMG,
+                SAITAMA_IMG,https://telegra.ph/file/ad04ef7d685f1145015f0.jpg
                 PM_START_TEXT.format(
                     escape_markdown(first_name),
                     escape_markdown(context.bot.first_name)),
