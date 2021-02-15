@@ -51,13 +51,13 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-Hi {}, my name is {}! 
-I am Itachi an Anime Naruto ナルト Theme Bot.I can Manage your group with my super cool jutsu's.Tap on /help to know more about my jutsu's. 
+Hi {}, my name is {Eren Yeager}! 
+I am Eren Yeager an Anime Theme Bot.I can Manage your group with my super cool powers .Tap on /help to know more about my jutsu's. 
 """
 
 HELP_STRINGS = """
-Hey Wanderer! I am *{}*.
- From konoha Village. Add me In your Groups so a Uchicha can protect you. btw i am stronger than Madara.
+Hey Wanderer! I am *{Eren Yeager}*.
+ From Paradise Island. Add me In your Groups so The Founding Titan can protect your group. 
 
 *Main* commands available:
  • /help: PM's you this message.
