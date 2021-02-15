@@ -52,12 +52,12 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 Hi {}, my name is {Eren Yeager}! 
-I am Eren Yeager an Anime Theme Bot.I can Manage your group with my super cool powers .Tap on /help to know more about my jutsu's. 
+I am Eren Yeager an Anime Theme Bot.I can Manage your group with my super cool powers .Tap on /help to know more about commands and power. 
 """
 
 HELP_STRINGS = """
 Hey Wanderer! I am *{Eren Yeager}*.
- From Paradise Island. Add me In your Groups so The Founding Titan can protect your group. 
+ From Paradise Island. Add me In your Groups so The Founding Titan can protect your group. i am more powerful and stable than other other bots help me to grow my Eldian empire.
 
 *Main* commands available:
  • /help: PM's you this message.
@@ -74,12 +74,10 @@ And the following:
     dispatcher.bot.first_name, ""
     if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
 
-SAITAMA_IMG = "https://telegra.ph/file/a61b944b57a1b1590fb87.jpg"
+SAITAMA_IMG = "
 
-DONATE_STRING = """Heya, glad to hear you want to donate!
-itachi is hosted on free database so ofcourse we need donation to improve our power of bot.
-there is some links so you can donate us:-
- [PayPal](paypal.me/tusharpal4)."""
+DONATE_STRING = """Heya, glad to hear you want to donate!Eren Yeager is hosted on free database but we don't need doantions.
+
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -197,17 +195,17 @@ def start(update: Update, context: CallbackContext):
                 reply_markup=InlineKeyboardMarkup(
                     [[
                         InlineKeyboardButton(
-                            text="🔥 Add Itachi to your group",
+                            text="🔥 Add Eren Yeager to your group",
                             url="t.me/{}?startgroup=true".format(
                                 context.bot.username))
                     ],
                      [
                          InlineKeyboardButton(
                              text="☢️ Support Group",
-                             url=f"https://t.me/{SUPPORT_CHAT}"),
+                             url=f"https://t.me/{hindisubanimes}"),
                          InlineKeyboardButton(
                              text="📡 Updates Channel",
-                             url="https://t.me/itachiUpdates")
+                             url="https://t.me/hindsubanimenews")
                      ],
                      [
                          InlineKeyboardButton(
@@ -217,7 +215,7 @@ def start(update: Update, context: CallbackContext):
             
     else:
         update.effective_message.reply_text(
-            "I'm dead already!\n<b>Haven't slept since:</b> <code>{}</code>"
+            "I'm alive!\n<b>Haven't slept since:</b> <code>{}</code>"
             .format(uptime),
             parse_mode=ParseMode.HTML)
 
