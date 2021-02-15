@@ -74,7 +74,7 @@ And the following:
     dispatcher.bot.first_name, ""
     if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
 
-SAITAMA_IMG = "
+SAITAMA_IMG = "https://telegra.ph/file/ad04ef7d685f1145015f0.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!Eren Yeager is hosted on free database but we don't need doantions.
 
